@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, LesPilotoActivity!</string>
+    <string name="app_name">LesPiloto</string>
+    
+    
+    <string-array name="periodos">
+        <item>1º Periodo</item>
+        <item>2º Periodo</item>
+        <item>3º Periodo</item>
+        <item>4º Periodo</item>
+        <item>5º Periodo</item>
+        <item>6º Periodo</item>
+        <item>7º Periodo</item>
+        <item>8º Periodo</item>
+    </string-array>
+
+</resources>

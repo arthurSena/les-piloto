@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fundo1" >
+
+<!--     <TextView -->
+<!--         android:id="@+main/textoPeriodo" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_alignParentTop="true" -->
+<!--         android:layout_centerHorizontal="true" -->
+<!--         android:layout_marginTop="31dp" -->
+<!--         android:text="Selecione o Periodo" -->
+<!--         android:textAppearance="?android:attr/textAppearanceLarge" /> -->
+
+    <RelativeLayout
+        android:id="@+main/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+main/selectPeriodo" >
+
+        <!-- <Button -->
+        <!-- android:id="@+main/button1" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignParentLeft="true" -->
+        <!-- android:layout_alignParentTop="true" -->
+        <!-- android:layout_marginLeft="46dp" -->
+        <!-- android:layout_marginTop="30dp" -->
+        <!-- android:text="Button" /> -->
+
+
+        <!-- <Button -->
+        <!-- android:id="@+main/button2" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignLeft="@+main/button1" -->
+        <!-- android:layout_centerVertical="true" -->
+        <!-- android:text="Button" /> -->
+
+
+        <!-- <Button -->
+        <!-- android:id="@+main/button3" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignLeft="@+main/button2" -->
+        <!-- android:layout_alignParentBottom="true" -->
+        <!-- android:layout_marginBottom="25dp" -->
+        <!-- android:text="Button" /> -->
+
+
+        <!-- <Button -->
+        <!-- android:id="@+main/button4" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignBaseline="@+main/button1" -->
+        <!-- android:layout_alignBottom="@+main/button1" -->
+        <!-- android:layout_alignParentRight="true" -->
+        <!-- android:layout_marginRight="39dp" -->
+        <!-- android:text="Button" /> -->
+
+
+        <!-- <Button -->
+        <!-- android:id="@+main/button5" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignBaseline="@+main/button2" -->
+        <!-- android:layout_alignBottom="@+main/button2" -->
+        <!-- android:layout_alignRight="@+main/button4" -->
+        <!-- android:text="Button" /> -->
+
+
+        <!-- <Button -->
+        <!-- android:id="@+main/button6" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignBottom="@+main/button3" -->
+        <!-- android:layout_alignLeft="@+main/button5" -->
+        <!-- android:text="Button" /> -->
+
+
+        <!-- <Button -->
+        <!-- android:id="@+main/button7" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_above="@+main/button5" -->
+        <!-- android:layout_centerHorizontal="true" -->
+        <!-- android:text="Button" /> -->
+
+
+        <!-- <Button -->
+        <!-- android:id="@+main/button8" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_above="@+main/button3" -->
+        <!-- android:layout_alignLeft="@+main/button7" -->
+        <!-- android:text="Button" /> -->
+
+        <ImageButton
+            android:id="@+main/imageButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="49dp"
+            android:src="@drawable/cadeira" />
+
+        <ImageButton
+            android:id="@+main/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+main/imageButton1"
+            android:layout_below="@+main/imageButton1"
+            android:src="@drawable/cadeira" />
+
+        <ImageButton
+            android:id="@+main/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+main/imageButton2"
+            android:layout_centerVertical="true"
+            android:src="@drawable/cadeira" />
+
+        <ImageButton
+            android:id="@+main/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+main/imageButton3"
+            android:layout_below="@+main/imageButton3"
+            android:src="@drawable/cadeira" />
+
+        <ImageButton
+            android:id="@+main/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+main/imageButton2"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/cadeira" />
+
+        <ImageButton
+            android:id="@+main/imageButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+main/imageButton3"
+            android:layout_alignLeft="@+main/imageButton5"
+            android:src="@drawable/cadeira" />
+
+        <ImageButton
+            android:id="@+main/imageButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+main/imageButton4"
+            android:layout_alignRight="@+main/imageButton6"
+            android:src="@drawable/cadeira" />
+
+        <ImageButton
+            android:id="@+main/imageButton8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+main/imageButton7"
+            android:layout_alignTop="@+main/imageButton4"
+            android:src="@drawable/cadeira" />
+       
+    </RelativeLayout>
+
+    <Spinner
+        android:id="@+main/selectPeriodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="115dp" />
+
+</RelativeLayout>
