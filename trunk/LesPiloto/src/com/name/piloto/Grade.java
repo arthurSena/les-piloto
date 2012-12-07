@@ -1,46 +1,134 @@
 package com.name.piloto;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.HashSet;
+import java.util.Iterator;
+
 public class Grade {
 	
-	private  String[] periodo1 = {"Calculo 1" , "Itr. Comp" , "LPT" , "LP1" , "P1" , "Vetorial"};
-	private  String[] periodo2 = {"Calculo 2" , "Programacao 2 " , "Discreta" , "LP2" , "P2" , "Grafos","Fisica Classica"};
-	private  String[] periodo3 = {"EDA" , "LEDA" , "Alg. Linear" , "Probabilidade" , "Teoria Comp." , "Fisica Moderna", "Gerencia Inf."};
-	private  String[] periodo4 = {"Logica Matematica" , "SI 1" , "Engenharia de Soft." , "Metodos Estatisticos" , "PLP" , "OAC", "LOAC"};
-	private  String[] periodo5 = {"ATAL" , "Redes" , "Compiladores" , "BD1" , "SI 2" , "LES" , "Inf. Sociedade"};
-	private  String[] periodo6 = {"SO" , "IRC" , "LIRC" , "IA" , "BD2" , "OPT 1" , "OPT 2" , "Direito"};
-	private  String[] periodo7 = {"MSN" , "ADSD" , "Projeto 1" , "OPT 3" , "OPT 4" , "OPT 5", "OPT 6"};
-	private  String[] periodo8 = {"Projeto 2" , "OPT 7" , "OPT 8" , "OPT 9" , "OPT 10" , "OPT 11"};
 	
-	public Grade(){}
+	private HashSet<Cadeira> grade;  
 	
-	public String[] getDisciplinas(int periodo){
-		if (periodo == 1) {
-			return periodo1;
+	public Grade(){
+		this.grade = new HashSet<Cadeira>();
+	}
+	
+	public boolean addPreRequisito(Cadeira cadeira, Cadeira cadeiraRequisito){
+		return cadeira.addPreRequisito(cadeiraRequisito);
+	}
+	
+	public boolean addPreRequisito(String cadeira, String cadeiraRequisito){
+		Cadeira cadeiraAux, cadeiraPrincipal = null, cadeiraSecundaria = null;
+		Iterator<Cadeira> it = this.grade.iterator();
+		
+		while (it.hasNext()){
+			cadeiraAux = it.next();
+			if (cadeiraAux.getNomeCadeira().equals(cadeira)){
+				cadeiraPrincipal = cadeiraAux;
+			} 
+			else if (cadeiraAux.getNomeCadeira().equals(cadeiraRequisito)){
+				cadeiraSecundaria = cadeiraAux;
+			}
 		}
-		else if (periodo == 2) {
-			return periodo2;
+		return addPreRequisito(cadeiraPrincipal, cadeiraSecundaria);
+	}
+	
+	public boolean realizarMatricula(String cadeira){
+		Cadeira cadeiraAux;
+		Iterator<Cadeira> it = this.grade.iterator();
+		
+		while (it.hasNext()){
+			cadeiraAux = it.next();
+			
+			if (cadeiraAux.getNomeCadeira().equals(cadeira)){
+				return cadeiraAux.realizarMatricula();
+			}
+			
 		}
-		else if (periodo == 3) {
-			return periodo3;
+		
+		return false;
+	}
+	
+	@Override
+	public String toString(){
+		String res = null;
+		Cadeira aux;
+		Iterator<Cadeira> it = getGrade().iterator();
+		
+		while (it.hasNext()){
+			aux = it.next();
+			res = aux.getNomeCadeira() + " - " + aux.getPreRequisito() + " " + res;
 		}
-		else if (periodo == 4) {
-			return periodo4;
+		
+		return res;
+	}
+	
+	
+	public boolean pagarCadeira(String cadeira){
+		Cadeira cadeiraAux;
+		Iterator<Cadeira> it = this.grade.iterator();
+		
+		while (it.hasNext()){
+			cadeiraAux = it.next();
+			
+			if (cadeiraAux.getNomeCadeira().equals(cadeira)){
+				cadeiraAux.cadeiraCursada();
+				return cadeiraAux.isCursada();
+			}
+			
 		}
-		else if (periodo == 5) {
-			return periodo5;
+		
+		return false;
+	}
+	
+	public boolean addCadeira(Cadeira cadeira){
+		return grade.add(cadeira);
+	}
+		
+	public HashSet<Cadeira> getGrade() {
+		return grade;
+	}
+
+	public static void main(String[] args) throws IOException, FileNotFoundException {
+		Grade gr = new Grade();
+		String caminhoCadeiras = ".\\cadeira.txt";
+		BufferedReader cadeiras = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoCadeiras), "UTF-8"));
+		
+		String linha2;
+		while ((linha2 = cadeiras.readLine()) != null){
+			gr.addCadeira(new Cadeira(linha2));
 		}
-		else if (periodo == 6) { 
-			return periodo6;
+
+		cadeiras.close();
+		
+		
+		String caminhoRequisitos = ".\\requisitos.txt";
+		BufferedReader requisitos = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoRequisitos), "UTF-8"));
+	
+		String linha3, cadeiraPrincipal;
+		String[] auxRequisitos;
+		while ((linha3 = requisitos.readLine()) != null){
+			auxRequisitos = linha3.split("\t");
+			cadeiraPrincipal = auxRequisitos[0];
+			
+			for (int i = 1; i < auxRequisitos.length; i++){
+				gr.addPreRequisito(cadeiraPrincipal, auxRequisitos[i]);
+			}
 		}
-		else if (periodo == 7) {
-			return periodo7;
-		}
-		else if (periodo == 8) {
-			return periodo8;
-		}
-		else{
-			return null;
-		}
+		
+		
+		requisitos.close();
+		
+		
+		
 	}
 }
 
