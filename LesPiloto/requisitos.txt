@@ -1,0 +1,35 @@
+Programacao II	Programacao I	Laboratorio de Programacao I	Introducao a Computacao
+Laboratorio de Programacao II	Programacao I	Laboratorio de Programacao I	Introducao a Computacao
+Teoria dos Grafos	Programacao I	Laboratorio de Programacao I
+Calculo Diferencial e Integral II	Calculo Diferencial e Integral I
+Fundamentos de Fisica Classica	Calculo Diferencial e Integral I	Algebra Vetorial e Geometria Analitica
+Estrutura de Dados e Algoritmos	Programacao II	Laboratorio de Programacao II	Teoria dos Grafos
+Laboratorio de Estrutura de Dados e Algoritmos	Laboratorio de Programacao II	Programacao II	Teoria dos Grafos
+Algebra Linear	Algebra Vetorial e Geometria Analitica
+Probabilidade e Estatistica	Calculo Diferencial e Integral II
+Teoria da Computacao	Teoria dos Grafos	Introducao a Computacao	Matematica Discreta
+Fundamentos de Fisica Moderna	Calculo Diferencial e Integral II	Fundamentos de Fisica Classica
+Organizacao e Arquitetura de Computadores I	Estrutura de Dados e Algoritmos	Laboratorio de Estrutura de Dados e Algoritmos	Fundamentos de Fisica Moderna
+Laboratorio de Organizacao e Arquitetura de Computadores	Estrutura de Dados e Algoritmos	Laboratorio de Estrutura de Dados e Algoritmos	Fundamentos de Fisica Moderna
+Paradigmas de Linguagens de Programacao	Estrutura de Dados e Algoritmos	Laboratorio de Estrutura de Dados e Algoritmos	Teoria da Computacao
+Metodos Estatisticos	Algebra Linear	Probabilidade e Estatistica
+Logica Matematica	Teoria da Computacao
+Sistemas de Informacao I	Gerencia da Informacao
+Engenharia de Software I	Programacao II	Laboratorio de Programacao II	Probabilidade e Estatistica
+Analise e Tecnicas de Algoritmos	Estrutura de Dados e Algoritmos	Calculo Diferencial e Integral II	Laboratorio de Estrutura de Dados e Algoritmos	Logica Matematica
+Redes de Computadores	Organizacao e Arquitetura de Computadores I	Laboratorio de Organizacao e Arquitetura de Computadores
+Compiladores	Paradigmas de Linguagens de Programacao	Organizacao e Arquitetura de Computadores I	Laboratorio de Organizacao e Arquitetura de Computadores
+Bancos de Dados I	Sistemas de Informacao I
+Sistemas de Informacao II	Sistemas de Informacao I
+Laboratorio de Engenharia de Software	Engenharia de Software I
+Sistemas Operacionais	Laboratorio de Organizacao e Arquitetura de Computadores	Organizacao e Arquitetura de Computadores I
+Interconexao de Redes de Computadores	Redes de Computadores
+Laboratorio de Interconexao de Redes de Computadores	Redes de Computadores
+Inteligencia Artificial I	Analise e Tecnicas de Algoritmos	Paradigmas de Linguagens de Programacao	Metodos Estatisticos
+Banco de Dados II	Sistemas de Informacao II	Bancos de Dados I
+Redes Neurais	Analise e Tecnicas de Algoritmos	Algebra Linear
+Metodos Formais	Engenharia de Software I
+Metodos e Software Numericos	Analise e Tecnicas de Algoritmos	Algebra Vetorial e Geometria Analitica
+Avaliacao de Desempenho de Sistemas Discretos	Probabilidade e Estatistica
+Projeto em Computacao I	Metodologia Cientifica	Engenharia de Software I
+Projeto em Computacao II	Projeto em Computacao I
