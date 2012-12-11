@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item android:id="@+id/emCurso" android:title="Em Curso"/>
+    
+    <item android:id="@+id/cursada" android:title="Cursada"/>"
+        
+    <item android:id="@+id/naoCursada" android:title="Não Cursada"/>"
+    
+</menu>
