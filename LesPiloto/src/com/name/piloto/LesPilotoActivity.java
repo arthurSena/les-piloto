@@ -160,6 +160,57 @@ public class LesPilotoActivity extends Activity {
 			}
 		});
 		
+		bt2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showDialog(0);
+			}
+		});
+		
+		bt3.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showDialog(0);
+			}
+		});
+		
+		bt4.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showDialog(0);
+			}
+		});
+		
+		bt5.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showDialog(0);
+			}
+		});
+		
+		
+		bt6.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showDialog(0);
+			}
+		});
+		
+		bt7.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showDialog(0);
+			}
+		});
+		
+		
+		bt8.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showDialog(0);
+			}
+		});
+		
 		//Motando a garde
 		
 		Grade gr = new Grade();
