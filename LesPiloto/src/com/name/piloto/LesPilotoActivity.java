@@ -6,9 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -145,7 +150,15 @@ public class LesPilotoActivity extends Activity {
 	    		}
 		 }
 		public void onNothingSelected(AdapterView<?> arg0) {}
-	});	
+	});
+		
+		
+		bt1.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showDialog(0);
+			}
+		});
 		
 		//Motando a garde
 		
@@ -182,6 +195,32 @@ public class LesPilotoActivity extends Activity {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+    protected Dialog onCreateDialog(int id) {
+		switch (id) {
+        case 0:
+
+             //Primeiro precisamos criar um inflater que adapte o conteudo do xml para o AlertDialog
+             LayoutInflater factory = LayoutInflater.from(this);
+             final View textEntryView = factory.inflate(R.layout.opcoes, null); //passamos o XML criado
+             return new AlertDialog.Builder(LesPilotoActivity.this)
+                  .setTitle("O que deseja ???").setView(textEntryView)
+                  .setPositiveButton("Cursando Disciplina", new DialogInterface.OnClickListener() {
+                       public void onClick(DialogInterface dialog, int whichButton) {
+                       	
+                       	//ELE DEVER FAZER ALGUMA COISA Q EU NAO SEI OQ EH rsrsrs
+                    	   dialog.cancel();
+                  }
+             }).setNegativeButton("Disciplina Cursada", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int whichButton) {
+                	//ELE DEVER FAZER ALGUMA COISA Q EU NAO SEI OQ EH rsrsrs
+               	  dialog.cancel();
+                  }
+             }).create(); //por fim criamos o AlertDialog depois de todo construído (título, layout, botões e ações)
+		}
+		return null;
 	}
 
 }
