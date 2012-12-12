@@ -74,7 +74,7 @@ public class Grade {
 	
 	public boolean pagarCadeira(String cadeira){
 		Cadeira cadeiraAux;
-		Iterator<Cadeira> it = this.grade.iterator();
+		Iterator<Cadeira> it = getGrade().iterator();
 		
 		while (it.hasNext()){
 			cadeiraAux = it.next();
@@ -98,13 +98,47 @@ public class Grade {
 	}
 
 	public static void main(String[] args) throws IOException, FileNotFoundException {
-		Grade gr = new Grade();
+//		Grade gr = new Grade();
+//		String caminhoCadeiras = ".\\cadeira.txt";
+//		BufferedReader cadeiras = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoCadeiras), "UTF-8"));
+//		
+//		String linha2;
+//		while ((linha2 = cadeiras.readLine()) != null){
+//			gr.addCadeira(new Cadeira(linha2));
+//		}
+//
+//		cadeiras.close();
+//		
+//		
+//		String caminhoRequisitos = ".\\requisitos.txt";
+//		BufferedReader requisitos = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoRequisitos), "UTF-8"));
+//	
+//		String linha3, cadeiraPrincipal;
+//		String[] auxRequisitos;
+//		while ((linha3 = requisitos.readLine()) != null){
+//			auxRequisitos = linha3.split("\t");
+//			cadeiraPrincipal = auxRequisitos[0];
+//			
+//			for (int i = 1; i < auxRequisitos.length; i++){
+//				gr.addPreRequisito(cadeiraPrincipal, auxRequisitos[i]);
+//			}
+//		}
+//		
+//		
+//		requisitos.close();
+		
+		
+		
+	}
+
+	public void mondaGrade() throws IOException {
+//		Grade gr = new Grade();
 		String caminhoCadeiras = ".\\cadeira.txt";
 		BufferedReader cadeiras = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoCadeiras), "UTF-8"));
 		
 		String linha2;
 		while ((linha2 = cadeiras.readLine()) != null){
-			gr.addCadeira(new Cadeira(linha2));
+			addCadeira(new Cadeira(linha2));
 		}
 
 		cadeiras.close();
@@ -120,13 +154,12 @@ public class Grade {
 			cadeiraPrincipal = auxRequisitos[0];
 			
 			for (int i = 1; i < auxRequisitos.length; i++){
-				gr.addPreRequisito(cadeiraPrincipal, auxRequisitos[i]);
+				addPreRequisito(cadeiraPrincipal, auxRequisitos[i]);
 			}
 		}
 		
 		
 		requisitos.close();
-		
 		
 		
 	}
