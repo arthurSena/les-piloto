@@ -1,7 +1,11 @@
 package com.name.piloto;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
@@ -14,8 +18,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -39,56 +45,12 @@ public class LesPilotoActivity extends Activity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		String b;
-		
-		b = "aa";
-		try {
-			gr.mondaGrade();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-//				String caminhoCadeiras = ".\\cadeira.txt";
-//				BufferedReader cadeiras;
-//				try {
-//					cadeiras = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoCadeiras), "UTF-8"));
-//					String linha2;
-//					while ((linha2 = cadeiras.readLine()) != null){
-//						gr.addCadeira(new Cadeira(linha2));
-//					}
-//					b = "aa";
-//
-//					cadeiras.close();
-//					
-//					
-//					String caminhoRequisitos = ".\\requisitos.txt";
-//					BufferedReader requisitos = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoRequisitos), "UTF-8"));
-//				
-//					String linha3, cadeiraPrincipal;
-//					String[] auxRequisitos;
-//					b = "aa";
-//					while ((linha3 = requisitos.readLine()) != null){
-//						auxRequisitos = linha3.split("\t");
-//						cadeiraPrincipal = auxRequisitos[0];
-//						
-//						for (int i = 1; i < auxRequisitos.length; i++){
-//							gr.addPreRequisito(cadeiraPrincipal, auxRequisitos[i]);
-//						}
-//					}
-//					
-//					
-//					requisitos.close();
-//
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-		
+		gr.mondaGrade();
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
-
-		bt1 = (ImageButton ) findViewById(R.main.imageButton1);
+		setContentView(R.layout.main);	
+		
+		bt1 = (ImageButton ) findViewById(R.main.imageButton1);		
 		btCadeira.put(bt1.getId(), "bt1");
 		bt2 = (ImageButton ) findViewById(R.main.imageButton2);
 		btCadeira.put(bt2.getId(), "bt2");
@@ -231,9 +193,9 @@ public class LesPilotoActivity extends Activity {
 		public void onNothingSelected(AdapterView<?> arg0) {}
 	});	
 		
-		
 	}
 	
+
 	@Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
     	super.onCreateContextMenu(menu, v, menuInfo);
@@ -245,33 +207,26 @@ public class LesPilotoActivity extends Activity {
     		inflater.inflate(R.menu.status, menu);
     	}
     }
-	
-	@Override
-	public String toString(){
-		return "aaaaa";
-	}
     
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-    	String ca = "s";
     	cadeiraSelecionada = btPeriodo.get(periodoSelecionado + " " + cadeiraSelecionada);
     	switch (item.getItemId()) {
     	
     		case R.id.cursada:
-    			ca = gr.toString();
     			if (gr.pagarCadeira(cadeiraSelecionada)){
         			Toast.makeText(getApplicationContext(), cadeiraSelecionada +  " Marcada como cursada " , Toast.LENGTH_SHORT).show();
     			}
     			else {
-    				Toast.makeText(getApplicationContext(), cadeiraSelecionada + "Nao foi possivel marcar como cursada", Toast.LENGTH_SHORT).show();
+    				Toast.makeText(getApplicationContext(), cadeiraSelecionada + "Nao foi possivel marcar como cursada ", Toast.LENGTH_SHORT).show();
     			}
     			return true;
     		case R.id.emCurso:
     			if (gr.realizarMatricula(cadeiraSelecionada)){
-        			Toast.makeText(getApplicationContext(), cadeiraSelecionada + "Marcada como em Curso", Toast.LENGTH_SHORT).show();
+        			Toast.makeText(getApplicationContext(), cadeiraSelecionada + "Marcada como em Curso ", Toast.LENGTH_SHORT).show();
     			} 
     			else {
-        			Toast.makeText(getApplicationContext(), cadeiraSelecionada +  "Nao foi possivel marcar como em curso", Toast.LENGTH_SHORT).show();
+        			Toast.makeText(getApplicationContext(), cadeiraSelecionada +  "Nao foi possivel marcar como em curso ", Toast.LENGTH_SHORT).show();
     			}
     			return true;
     		case R.id.naoCursada:

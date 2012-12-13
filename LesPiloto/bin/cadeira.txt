@@ -1,0 +1,54 @@
+Programacao I
+Laboratorio de Programacao I
+Introducao a Computacao
+Calculo Diferencial e Integral I
+Algebra Vetorial e Geometria Analitica
+Leitura e Producao de Textos
+Programacao II
+Laboratorio de Programacao II
+Teoria dos Grafos
+Calculo Diferencial e Integral II
+Matematica Discreta
+Metodologia Cientifica
+Fundamentos de Fisica Classica
+Estrutura de Dados e Algoritmos
+Laboratorio de Estrutura de Dados e Algoritmos
+Algebra Linear
+Probabilidade e Estatistica
+Teoria da Computacao
+Fundamentos de Fisica Moderna
+Gerencia da Informacao
+Organizacao e Arquitetura de Computadores I
+Laboratorio de Organizacao e Arquitetura de Computadores
+Paradigmas de Linguagens de Programacao
+Metodos Estatisticos
+Logica Matematica
+Sistemas de Informacao I
+Engenharia de Software I
+Analise e Tecnicas de Algoritmos
+Redes de Computadores
+Compiladores
+Bancos de Dados I
+Sistemas de Informacao II
+Laboratorio de Engenharia de Software
+Informatica e Sociedade
+Sistemas Operacionais
+Interconexao de Redes de Computadores
+Laboratorio de Interconexao de Redes de Computadores
+Inteligencia Artificial I
+Banco de Dados II
+Redes Neurais
+Metodos Formais
+Metodos e Software Numericos
+Avaliacao de Desempenho de Sistemas Discretos
+Relacoes Humanas
+Optativa 4
+Optativa 5
+Optativa 6
+Optativa 7
+Optativa 8
+Optativa 9
+Optativa 10
+Optativa 11
+Projeto em Computacao I
+Projeto em Computacao II
