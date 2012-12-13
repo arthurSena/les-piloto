@@ -1,6 +1,7 @@
 package com.name.piloto;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -11,6 +12,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Iterator;
+
+import android.os.Environment;
 
 public class Grade {
 	
@@ -131,37 +134,42 @@ public class Grade {
 		
 	}
 
-	public void mondaGrade() throws IOException {
-//		Grade gr = new Grade();
-		String caminhoCadeiras = ".\\cadeira.txt";
-		BufferedReader cadeiras = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoCadeiras), "UTF-8"));
-		
-		String linha2;
-		while ((linha2 = cadeiras.readLine()) != null){
-			addCadeira(new Cadeira(linha2));
-		}
-
-		cadeiras.close();
-		
-		
-		String caminhoRequisitos = ".\\requisitos.txt";
-		BufferedReader requisitos = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoRequisitos), "UTF-8"));
-	
-		String linha3, cadeiraPrincipal;
-		String[] auxRequisitos;
-		while ((linha3 = requisitos.readLine()) != null){
-			auxRequisitos = linha3.split("\t");
-			cadeiraPrincipal = auxRequisitos[0];
-			
-			for (int i = 1; i < auxRequisitos.length; i++){
-				addPreRequisito(cadeiraPrincipal, auxRequisitos[i]);
+	public void mondaGrade()  {
+		String caminhoCadeiras = Environment.getExternalStorageDirectory().getName() + File.separatorChar  + "cadeira.txt";
+		BufferedReader cadeiras;
+		try {
+			cadeiras = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoCadeiras), "UTF-8"));
+			String linha2;
+								
+			while ((linha2 = cadeiras.readLine()) != null){
+				addCadeira(new Cadeira(linha2));
 			}
+			
+
+			cadeiras.close();
+			
+			
+			String caminhoRequisitos = Environment.getExternalStorageDirectory().getName() + File.separatorChar  + "requisitos.txt";
+			BufferedReader requisitos = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoRequisitos), "UTF-8"));
+		
+			String linha3, cadeiraPrincipal;
+			String[] auxRequisitos;
+
+			while ((linha3 = requisitos.readLine()) != null){
+				auxRequisitos = linha3.split("\t");
+				cadeiraPrincipal = auxRequisitos[0];
+				
+				for (int i = 1; i < auxRequisitos.length; i++){
+					addPreRequisito(cadeiraPrincipal, auxRequisitos[i]);
+				}
+			}
+			
+			
+			requisitos.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		
-		requisitos.close();
-		
-		
 	}
 }
 
