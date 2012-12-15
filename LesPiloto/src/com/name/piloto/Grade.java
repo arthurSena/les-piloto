@@ -44,8 +44,8 @@ public class Grade {
 		}catch (Exception e) {
 			this.disciplinasEmCurso = new ArrayList<String>();
 		}
-		this.disciplinasCursadas = new ArrayList<String>();
-		this.disciplinasEmCurso = new ArrayList<String>();
+//		this.disciplinasCursadas = new ArrayList<String>();
+//		this.disciplinasEmCurso = new ArrayList<String>();
 	}
 	
 	public boolean addPreRequisito(Cadeira cadeira, Cadeira cadeiraRequisito){
