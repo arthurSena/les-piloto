@@ -10,8 +10,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 
 import android.os.Environment;
 
@@ -19,9 +21,14 @@ public class Grade {
 	
 	
 	private HashSet<Cadeira> grade;  
+	private List<String> disciplinasCursadas;
+	private List<String> disciplinasEmCurso;
+	
 	
 	public Grade(){
 		this.grade = new HashSet<Cadeira>();
+		this.disciplinasCursadas = new ArrayList<String>();
+		this.disciplinasEmCurso = new ArrayList<String>();
 	}
 	
 	public boolean addPreRequisito(Cadeira cadeira, Cadeira cadeiraRequisito){
@@ -52,7 +59,12 @@ public class Grade {
 			cadeiraAux = it.next();
 			
 			if (cadeiraAux.getNomeCadeira().equals(cadeira)){
-				return cadeiraAux.realizarMatricula();
+				boolean auxBoolean = cadeiraAux.realizarMatricula();
+				
+				if (auxBoolean){
+					this.disciplinasEmCurso.add(cadeira);
+				}	
+				return auxBoolean;
 			}
 			
 		}
@@ -84,6 +96,9 @@ public class Grade {
 			
 			if (cadeiraAux.getNomeCadeira().equals(cadeira)){
 				cadeiraAux.cadeiraCursada();
+				if (cadeiraAux.isCursada()){
+					this.disciplinasCursadas.add(cadeira);
+				}
 				return cadeiraAux.isCursada();
 			}
 			
@@ -131,6 +146,49 @@ public class Grade {
 //		requisitos.close();
 		
 		
+		
+	}
+	
+	public List<String> disciplinasCursdas(){
+		return this.disciplinasCursadas;
+	}
+	
+	public List<String> disciplinasEmCurso(){
+		return this.disciplinasEmCurso;
+	}
+	
+
+	public String disciplinasEmCursoString(){
+		String res = "";
+		
+		Iterator<String> it = disciplinasEmCurso.iterator();
+		
+		while (it.hasNext()){
+			res = res + it.next() + "\n";
+		}
+		
+		if (res == ""){
+			return "Nao existe nenhuma cadeira matriculada";
+		}
+		
+		return res;
+		
+	}
+	
+	public String disciplinasCursadasString(){
+		String res = "";
+		
+		Iterator<String> it = disciplinasCursadas.iterator();
+		
+		while (it.hasNext()){
+			res = res + it.next() + "\n";
+		}
+		
+		if (res == ""){
+			return "Nao existe nenhuma cadeira cursada";
+		}
+		
+		return res;
 		
 	}
 
