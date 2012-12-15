@@ -1,10 +1,13 @@
 package com.name.piloto;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -15,6 +18,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 import android.os.Environment;
 
 public class Grade {
@@ -23,10 +30,20 @@ public class Grade {
 	private HashSet<Cadeira> grade;  
 	private List<String> disciplinasCursadas;
 	private List<String> disciplinasEmCurso;
-	
+	private XStream xstream = new XStream();
 	
 	public Grade(){
 		this.grade = new HashSet<Cadeira>();
+		try{
+			this.disciplinasCursadas = recuperaDisciplinasCursadas();
+		}catch (Exception e) {
+			this.disciplinasCursadas = new ArrayList<String>();
+		}
+		try{
+			this.disciplinasEmCurso = recuperaDisciplinasEmCurso();
+		}catch (Exception e) {
+			this.disciplinasEmCurso = new ArrayList<String>();
+		}
 		this.disciplinasCursadas = new ArrayList<String>();
 		this.disciplinasEmCurso = new ArrayList<String>();
 	}
@@ -191,6 +208,47 @@ public class Grade {
 		return res;
 		
 	}
+	
+	
+	public void salvarDisciplinas(){
+		String caminhoCadeirasCursadas = Environment.getExternalStorageDirectory().getName() + File.separatorChar  + "cadeirasCursadas.txt";
+		String caminhoCadeirasMatriculadas = Environment.getExternalStorageDirectory().getName() + File.separatorChar  + "cadeirasMatriculadas.txt";
+		
+		if(!(disciplinasCursadas.isEmpty()) || !(disciplinasEmCurso.isEmpty())){
+			BufferedWriter writer;
+			try {
+				writer = new BufferedWriter(new FileWriter(caminhoCadeirasCursadas));
+				String func = xstream.toXML(disciplinasCursadas);
+				writer.write(func);
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			BufferedWriter writer2;
+			try {
+				writer2 = new BufferedWriter(new FileWriter(caminhoCadeirasMatriculadas));
+				String func = xstream.toXML(disciplinasEmCurso);
+				writer2.write(func);
+				writer2.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private List<String> recuperaDisciplinasCursadas()throws Exception{
+		XStream xstream = new XStream(new DomDriver()); 
+		FileReader reader = new FileReader(Environment.getExternalStorageDirectory().getName() + File.separatorChar  + "cadeirasCursadas.txt");
+		return ((List<String>) xstream.fromXML(reader)); 
+	}
+	
+	private List<String> recuperaDisciplinasEmCurso()throws Exception{
+		XStream xstream = new XStream(new DomDriver()); 
+		FileReader reader = new FileReader(Environment.getExternalStorageDirectory().getName() + File.separatorChar  + "cadeirasMatriculadas.txt");
+		return ((List<String>) xstream.fromXML(reader)); 
+	}
+
 
 	public void mondaGrade()  {
 		String caminhoCadeiras = Environment.getExternalStorageDirectory().getName() + File.separatorChar  + "cadeira.txt";

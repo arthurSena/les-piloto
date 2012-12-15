@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -235,6 +236,15 @@ public class LesPilotoActivity extends Activity {
 			
 		});
 		
+		Button btSalvar = (Button) findViewById(R.main.buttonSalvar);
+		btSalvar.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				gr.salvarDisciplinas();
+				imprimirMensagem("Dados Salvos com Sucesso", "Sucesso !!!");
+			}
+		});
 		
 		
 		bt1 = (ImageButton ) findViewById(R.main.imageButton1);		
@@ -461,7 +471,6 @@ public class LesPilotoActivity extends Activity {
 				
 			}
 		});
-		
 	}
 
 
@@ -472,5 +481,14 @@ public class LesPilotoActivity extends Activity {
 
 	private String cadeirasMatriculadas() {
 		return gr.disciplinasEmCursoString();
+	}
+	
+	public void imprimirMensagem(String Caption, String Title) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(LesPilotoActivity.this);
+		builder.setMessage(Caption);
+		builder.setNeutralButton("OK", null);
+		AlertDialog dialog = builder.create();
+		dialog.setTitle(Title);
+		dialog.show();
 	}
 }
