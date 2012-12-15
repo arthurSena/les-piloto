@@ -30,6 +30,7 @@ public class Cadeira {
 		}
 		setEmCurso(true);
 		
+		
 		return true;
 	}
 	

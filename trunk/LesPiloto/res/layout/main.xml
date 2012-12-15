@@ -171,6 +171,24 @@
             android:layout_alignLeft="@+main/imageButton7"
             android:layout_alignTop="@+main/imageButton4"
             android:src="@drawable/cadeira" />
+
+        <Button
+            android:id="@+main/listaCursadas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+main/imageButton4"
+            android:layout_alignRight="@+main/imageButton4"
+            android:layout_below="@+main/imageButton4"
+            android:text="Cadeiras Cursadas" />
+
+        <Button
+            android:id="@+main/listaEmCurso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+main/imageButton8"
+            android:layout_alignRight="@+main/imageButton8"
+            android:layout_below="@+main/imageButton8"
+            android:text="Cadeiras Em Curso" />
        
     </RelativeLayout>
 
