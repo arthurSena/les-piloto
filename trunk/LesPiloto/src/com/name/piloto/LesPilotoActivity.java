@@ -415,19 +415,19 @@ public class LesPilotoActivity extends Activity {
         			Toast.makeText(getApplicationContext(), cadeiraSelecionada +  " Marcada como cursada " , Toast.LENGTH_SHORT).show();
     			}
     			else {
-    				Toast.makeText(getApplicationContext(), cadeiraSelecionada + "Nao foi possivel marcar como cursada ", Toast.LENGTH_SHORT).show();
+    				Toast.makeText(getApplicationContext(), cadeiraSelecionada + " Nao foi possivel marcar como cursada ", Toast.LENGTH_SHORT).show();
     			}
     			return true;
     		case R.id.emCurso:
     			if (gr.realizarMatricula(cadeiraSelecionada)){
-        			Toast.makeText(getApplicationContext(), cadeiraSelecionada + "Marcada como em Curso ", Toast.LENGTH_SHORT).show();
+        			Toast.makeText(getApplicationContext(), cadeiraSelecionada + " Marcada como em Curso ", Toast.LENGTH_SHORT).show();
     			} 
     			else {
-        			Toast.makeText(getApplicationContext(), cadeiraSelecionada +  "Nao foi possivel marcar como em curso ", Toast.LENGTH_SHORT).show();
+        			Toast.makeText(getApplicationContext(), cadeiraSelecionada +  " Nao foi possivel marcar como em curso ", Toast.LENGTH_SHORT).show();
     			}
     			return true;
     		case R.id.naoCursada:
-    			Toast.makeText(getApplicationContext(), "Marcada como Não Cursada", Toast.LENGTH_SHORT).show();
+    			Toast.makeText(getApplicationContext(), " Marcada como Não Cursada", Toast.LENGTH_SHORT).show();
     			return true;
     		default:
     			return super.onContextItemSelected(item);
